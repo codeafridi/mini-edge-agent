@@ -32,21 +32,26 @@ Inspired by Kubernetes controller patterns and edge computing concepts (e.g., Ku
 ### Start a local cluster
 ```bash
 minikube start
+```
 
- Create a test deployment
-
+## Create a test deployment
+```bash
 kubectl create deployment demo --image=nginx
+```
 
-Run the Mini Edge Agent
+## Run the Mini Edge Agent
+```bash
 go run main.go --edge-online=false
+```
 
-Verify behavior
+## Verify behavior
+```bash
 kubectl get deployments
+```
 
+## You should see the deployment scaled to 0 replicas when the edge is offline.
 
-You should see the deployment scaled to 0 replicas when the edge is offline.
-
-Example Scenario
+## Example Scenario
 
 This simulates a situation where an edge node becomes unavailable.
 The agent reacts by disabling workloads to prevent inconsistent or unnecessary execution while the edge is offline.
@@ -59,18 +64,14 @@ mini-edge-agent/
 ├── config/
 │   └── config.yaml
 
-Motivation
+## inspiration
 
 This project was created to understand Kubernetes controller mechanics and explore how edge agent behavior can be simulated using core Kubernetes primitives without building a full edge platform.
 
-Future Improvements
+## Future Improvements
 
 Restore original replica counts when the edge comes back online
-
 Filter deployments using labels
-
 Read configuration from a YAML file
-
 Introduce a CRD-based control mechanism
-
 Simulate node-level edge conditions
