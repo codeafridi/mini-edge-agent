@@ -70,7 +70,7 @@ This project was created to understand Kubernetes controller mechanics and explo
 
 ## Future Improvements
 
-Restore original replica counts when the edge comes back online
+Restore original replica counts when the edge comes back online \n
 Filter deployments using labels
 Read configuration from a YAML file
 Introduce a CRD-based control mechanism
